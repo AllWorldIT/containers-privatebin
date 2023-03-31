@@ -128,6 +128,18 @@ EOL;
   exit(PHP_EOL);
 }
 
+function url_origin( $s, $use_forwarded_host = false )
+{
+    $protocol = isset( $s['HTTP_X_FORWARDED_PROTO'] ) ? $s['HTTP_X_FORWARDED_PROTO'] : "http";
+    $host     = isset( $s['HTTP_X_FORWARDED_HOST'] ) ? $s['HTTP_X_FORWARDED_HOST'] : ( isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : null );
+    $host     = isset( $host ) ? $host : $s['SERVER_NAME'];
+    return $protocol . '://' . $host;
+}
+
+
+
+
+
 /* --- Encryption parameters --- */
 $CIPHER_ITER_COUNT  = 100000;
 $CIPHER_SALT_BYTES  = 8;
@@ -358,8 +370,8 @@ if($debug) {
 $resp = json_decode($result, True);
 if($resp['status'] === 0) {
   exit("-- Successfully sent! --" . PHP_EOL .
-    "Paste Link:\t" . $url . "?" . $resp['id'] . "#" . $passhash . PHP_EOL .
-    "Detele Link:\t" . $url . "?pasteid=" . $resp['id'] . "&deletetoken=" .
+    "Paste Link:\t" . url_origin($_SERVER) . "/?" . $resp['id'] . "#" . $passhash . PHP_EOL .
+    "Detele Link:\t" . url_origin($_SERVER) . "/?pasteid=" . $resp['id'] . "&deletetoken=" .
     $resp['deletetoken'] . PHP_EOL);
 } else {
   exit("Error: " . $resp['message'] . PHP_EOL);
