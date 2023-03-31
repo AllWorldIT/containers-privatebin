@@ -417,4 +417,9 @@ EOF
 pwd = "$PRIVATEBIN_MODEL_OPTIONS_PWD"
 EOF
 
+    # End marker
+    cat <<EOF >> /var/www/html/cfg/conf.php
+; */
+EOF
+
 fi
