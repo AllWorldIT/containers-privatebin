@@ -55,7 +55,7 @@ fi
 
 
 # We need to wait 10s to prevent rate limiting
-sleep 10
+sleep 15
 
 
 fdc_test_start privatebin "Check PrivateBin is responding using IPv6..."
