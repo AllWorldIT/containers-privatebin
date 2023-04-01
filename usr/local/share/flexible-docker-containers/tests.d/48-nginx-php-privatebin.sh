@@ -39,7 +39,7 @@ if ! echo "TEST SUCCESS" | curl --verbose --ipv4 "http://localhost" --output tes
 	fdc_test_fail privatebin "Failed to get test data from PrivateBin using IPv4"
 	false
 fi
-if ! grep "Paste Link" test.out | awk '{print $3}' | grep -q http://localhost/; then
+if ! grep -E "Paste\s+Link" test.out | awk '{print $3}' | grep -q http://localhost/; then
 	fdc_test_fail privatebin "Contents of output from PrivateBin does not contain a paste link using IPv4"
 	false
 fi
@@ -76,7 +76,7 @@ if ! echo "TEST SUCCESS" | curl --verbose --ipv6 "http://localhost" --output tes
 	fdc_test_fail privatebin "Failed to get test data from PrivateBin using IPv6"
 	false
 fi
-if ! grep "Paste Link" test.out | awk '{print $3}' | grep -q http://localhost/; then
+if ! grep -E "Paste\s+Link" test.out | awk '{print $3}' | grep -q http://localhost/; then
 	fdc_test_fail privatebin "Contents of output from PrivateBin does not contain a paste link using IPv6"
 	cat test.out
 	false

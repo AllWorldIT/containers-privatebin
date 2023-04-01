@@ -369,10 +369,11 @@ if($debug) {
 
 $resp = json_decode($result, True);
 if($resp['status'] === 0) {
-  exit("-- Successfully sent! --" . PHP_EOL .
-    "Paste Link:\t" . url_origin($_SERVER) . "/?" . $resp['id'] . "#" . $passhash . PHP_EOL .
-    "Detele Link:\t" . url_origin($_SERVER) . "/?pasteid=" . $resp['id'] . "&deletetoken=" .
-    $resp['deletetoken'] . PHP_EOL);
+  exit(
+    "-- Successfully sent! --" . PHP_EOL .
+    "Paste  Link: " . url_origin($_SERVER) . "/?" . $resp['id'] . "#" . $passhash . PHP_EOL .
+    "Delete Link: " . url_origin($_SERVER) . "/?pasteid=" . $resp['id'] . "&deletetoken=" . $resp['deletetoken'] . PHP_EOL
+  );
 } else {
   exit("Error: " . $resp['message'] . PHP_EOL);
 }
