@@ -286,7 +286,7 @@ In addition to this configuration the below configuration is impleneted specific
 
 | Path                                    | Description                      |
 |-----------------------------------------|----------------------------------|
-| /etc/php/conf.d/30-fdc-privatebin.ini   | PrivateBin PHP INI configuration |
+| /etc/php/conf.d/30_fdc_privatebin.ini   | PrivateBin PHP INI configuration |
 | /etc/nginx/http.d/50_vhost_default.conf | Default PrivateBin Nginx config  |
 
 
