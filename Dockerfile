@@ -76,12 +76,12 @@ COPY termbin/termbin.php /var/www/html
 
 
 # PHP-FPM config
-COPY etc/php/conf.d/30-fdc-privatebin.ini /etc/$PHP_NAME/conf.d/30-fdc-privatebin.ini
+COPY etc/php/conf.d/30_fdc_privatebin.ini /etc/$PHP_NAME/conf.d/30_fdc_privatebin.ini
 RUN set -eux; \
 	chown root:root \
-		/etc/$PHP_NAME/conf.d/30-fdc-privatebin.ini; \
+		/etc/$PHP_NAME/conf.d/30_fdc_privatebin.ini; \
 	chmod 0644 \
-		/etc/$PHP_NAME/conf.d/30-fdc-privatebin.ini
+		/etc/$PHP_NAME/conf.d/30_fdc_privatebin.ini
 
 
 # PrivateBin
