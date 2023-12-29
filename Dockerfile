@@ -19,13 +19,13 @@
 # IN THE SOFTWARE.
 
 
-FROM registry.conarx.tech/containers/nginx-php/3.18
+FROM registry.conarx.tech/containers/nginx-php/3.19
 
 
 ARG VERSION_INFO=
 LABEL org.opencontainers.image.authors   "Nigel Kukard <nkukard@conarx.tech>"
-LABEL org.opencontainers.image.version   "3.18"
-LABEL org.opencontainers.image.base.name "registry.conarx.tech/containers/nginx-php/3.18"
+LABEL org.opencontainers.image.version   "3.19"
+LABEL org.opencontainers.image.base.name "registry.conarx.tech/containers/nginx-php/3.19"
 
 
 ENV PHP_NAME=php81
@@ -76,12 +76,12 @@ COPY termbin/termbin.php /var/www/html
 
 
 # PHP-FPM config
-COPY etc/php/conf.d/30-fdc-privatebin.ini /etc/$PHP_NAME/conf.d/30-fdc-privatebin.ini
+COPY etc/php/conf.d/30_fdc_privatebin.ini /etc/$PHP_NAME/conf.d/30_fdc_privatebin.ini
 RUN set -eux; \
 	chown root:root \
-		/etc/$PHP_NAME/conf.d/30-fdc-privatebin.ini; \
+		/etc/$PHP_NAME/conf.d/30_fdc_privatebin.ini; \
 	chmod 0644 \
-		/etc/$PHP_NAME/conf.d/30-fdc-privatebin.ini
+		/etc/$PHP_NAME/conf.d/30_fdc_privatebin.ini
 
 
 # PrivateBin
