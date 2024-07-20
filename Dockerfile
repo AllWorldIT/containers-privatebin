@@ -56,6 +56,7 @@ RUN set -eux; \
 	true "Patching"; \
 # Strip version from main page
 	sed -i -e 's,echo \$VERSION,echo "",' tpl/bootstrap.php; \
+	sed -i -e 's,echo \$VERSION,echo "",' tpl/bootstrap5.php; \
 	\
 	true "Check the checksum of the config to see if we have to update"; \
 	CFG_SHA256=$(sha256sum cfg/conf.sample.php | awk '{print $1}'); \
