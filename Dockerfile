@@ -30,7 +30,7 @@ LABEL org.opencontainers.image.base.name = "registry.conarx.tech/containers/ngin
 
 ENV PHP_NAME=php82
 
-ENV PRIVATEBIN_VER=1.7.5
+ENV PRIVATEBIN_VER=1.7.7
 
 
 RUN set -eux; \
@@ -60,7 +60,7 @@ RUN set -eux; \
 	\
 	true "Check the checksum of the config to see if we have to update"; \
 	CFG_SHA256=$(sha256sum cfg/conf.sample.php | awk '{print $1}'); \
-	if [ "$CFG_SHA256" != "7f7d9e10b360943cde8123c164c82316edc294d3dac686abc784a901d154c37a" ]; then echo "ERROR: CONFIG CHANGED AND POSSIBLY UPDATING: $CFG_SHA256"; exit 1; fi; \
+	if [ "$CFG_SHA256" != "ee800c972527d274cac4c997c714a750c3bd6dadf969e3ffa659c36d24aaf709" ]; then echo "ERROR: CONFIG CHANGED AND POSSIBLY UPDATING: $CFG_SHA256"; exit 1; fi; \
 	\
 	mv -v css i18n img index.php js lib robots.txt tpl vendor \
 		/var/www/html; \
