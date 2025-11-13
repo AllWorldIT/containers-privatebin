@@ -30,7 +30,7 @@ LABEL org.opencontainers.image.base.name = "registry.conarx.tech/containers/ngin
 
 ENV PHP_NAME=php82
 
-ENV PRIVATEBIN_VER=1.7.7
+ENV PRIVATEBIN_VER=1.7.9
 
 
 RUN set -eux; \
