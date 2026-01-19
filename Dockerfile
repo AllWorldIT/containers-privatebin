@@ -23,14 +23,14 @@ FROM registry.conarx.tech/containers/nginx-php/edge
 
 
 ARG VERSION_INFO=
-LABEL org.opencontainers.image.authors   = "Nigel Kukard <nkukard@conarx.tech>"
-LABEL org.opencontainers.image.version   = "edge"
-LABEL org.opencontainers.image.base.name = "registry.conarx.tech/containers/nginx-php/edge"
+LABEL org.opencontainers.image.authors="Nigel Kukard <nkukard@conarx.tech>"
+LABEL org.opencontainers.image.version="edge"
+LABEL org.opencontainers.image.base.name="registry.conarx.tech/containers/nginx-php/edge"
 
 
-ENV PHP_NAME=php82
+ENV PHP_NAME=php83
 
-ENV PRIVATEBIN_VER=1.7.9
+ENV PRIVATEBIN_VER=2.0.3
 
 
 RUN set -eux; \
@@ -60,7 +60,7 @@ RUN set -eux; \
 	\
 	true "Check the checksum of the config to see if we have to update"; \
 	CFG_SHA256=$(sha256sum cfg/conf.sample.php | awk '{print $1}'); \
-	if [ "$CFG_SHA256" != "ee800c972527d274cac4c997c714a750c3bd6dadf969e3ffa659c36d24aaf709" ]; then echo "ERROR: CONFIG CHANGED AND POSSIBLY UPDATING: $CFG_SHA256"; exit 1; fi; \
+	if [ "$CFG_SHA256" != "40253b2bf87b3c49e736a67423dfd7382e8a94f9d237b238099d29fe1d4c8f63" ]; then echo "ERROR: CONFIG CHANGED AND POSSIBLY UPDATING: $CFG_SHA256"; exit 1; fi; \
 	\
 	mv -v css i18n img index.php js lib robots.txt tpl vendor \
 		/var/www/html; \
